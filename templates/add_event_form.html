@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="assets/css/demofi.css">
+  <title>NoN</title>
+</head>
+<body>
+
+    <!-- Создать Мероприятие -->
+   <form action="action_page.php" style="border:1px solid #ccc">
+    <div class="container">
+      <h2> Создать мероприятие </h2>
+      <p> Регистрационная форма на мероприятие </p>
+      <hr>
+
+      <label for="fname"><b> Название Мероприятия </b></label>
+      <input type="text" placeholder="Название Организации" name="fname" required>
+
+      <label for="birthday"><b>Возраст</b></label>
+      <input type="date " placeholder="Возраст" name="birthday" required>
+
+      <label for="name"><b>Место Проведения</b></label>
+      <input type="text" placeholder="Место Проведения" name="name" required>
+
+      <label for="time"><b>Дата и Время</b></label>
+      <input type="date" placeholder="Дата и Время" name="time" required>
+
+      <label for="num"><b> Количество участников </b></label>
+      <input type="number" placeholder="Количество участников" name="num" required>
+
+      <label for="num"><b> Контакты </b></label>
+      <input type="number" placeholder=" Контакты" name="num" required>
+
+      <label for="info"><b> Информация про Мероприятие </b></label>
+      <input type="text" placeholder="Информация про Мероприятие" name="info" required>
+
+      <div class="clearfix">
+        <!-- <button type="button" class="cancelbtn">Cancel</button> -->
+        <button type="submit" class="signupbtn button-sign"> Создать мероприятие</button>
+      </div>
+    </div>
+  </form>
+</body>
+</html>
