@@ -31,7 +31,7 @@ class Participant(models.Model):
                               on_delete=models.CASCADE)
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
                              related_name='participating_events',
-                             on_delete=models.CASCADE,)
+                             on_delete=models.CASCADE, )
     attended = models.BooleanField(default=False)
     qr_code = models.ImageField(upload_to='participants/qr_codes/%Y/%m/%d')
 
@@ -55,3 +55,16 @@ class News(models.Model):
 
     def __str__(self):
         return self.title + str(self.event)
+
+
+class Attendance(models.Model):
+    participant = models.ForeignKey(Participant,
+                                    on_delete=models.CASCADE,
+                                    related_name='attendance')
+    date = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ('-date',)
+
+    def __str__(self):
+        return str(self.participant) + str(self.date)
