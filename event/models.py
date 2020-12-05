@@ -11,7 +11,8 @@ class Participant(models.Model):
 
 
 class News(models.Model):
-    pass
+    slug = models.SlugField(max_length=255)
+
 
 
 class Event(models.Model):
