@@ -295,5 +295,6 @@ div.desc {
   flex-direction: row;
   text-align: center;
   padding: 2rem;
+  flex-wrap: wrap;
 }
 
