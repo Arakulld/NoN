@@ -1,14 +1,24 @@
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.contrib.auth import views as auth_view
 
 
 # Create your views here.
-from account.forms import UserRegistrationForm
+from account.forms import UserRegistrationForm, UserEditForm, ProfileEditForm
 from account.models import Profile
 
 
 def dashboard(request):
     return render(request, 'dashboard.html')
+
+
+def events_for_today(request):
+    return render(request, 'today.html')
+
+
+def events_for_this_week(request):
+    return render(request, 'week.html')
 
 
 class CustomLogin(auth_view.LoginView):
@@ -36,3 +46,22 @@ def register(request):
     else:
         user_form = UserRegistrationForm()
     return render(request, 'register.html')
+
+
+@login_required
+def settings(request):
+    if request.method == 'POST':
+        try:
+            Profile.objects.get(user=request.user)
+        except Profile.DoesNotExist:
+            Profile.objects.create(user=request.user)
+
+        user_form = UserEditForm(instance=request.user, data=request.POST)
+        profile_form = ProfileEditForm(instance=request.user.profile, data=request.POST, files=request.FILES)
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            messages.success(request, 'Profile updated successfully')
+        else:
+            messages.error(request, 'Error updating profile')
+    return render(request, 'user_account.html')

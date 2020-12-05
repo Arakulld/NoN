@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,13 +13,13 @@
 <body>
 
    <!-- Регистрация на Мероприятие -->
-   <form class="modal-content" action="action_page.php" style="border:1px solid #ccc">
+   <form class="modal-content" action="." method="post" style="border:1px solid #ccc">
     <div class="container">
       <h2> Название Мероприятия </h2>
       <p> Подать заявку </p>
       <hr>
 
-      <label for="mame"><b>Имя Фамилия </b></label>
+      <label for="name"><b>Имя Фамилия </b></label>
       <input type="text" placeholder=" Имя Фамилия" name="name" required>
 
       <label for="fname"><b>  Название команды  </b></label>
