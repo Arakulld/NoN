@@ -6,23 +6,20 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="assets/css/demofi.css">
+  <link rel="stylesheet" href="/assets/css/demofi.css">
   <title>NoN</title>
 </head>
 <body>
 
    <!-- Sign Up -->
-   <form action="action_page.php" style="border:1px solid #ccc">
+   <form action="." method="post" style="border:1px solid #ccc">
     <div class="container">
       <h2>Sign Up</h2>
       <p>Please fill in this form to create an account.</p>
       <hr>
 
       <label for="fname"><b> Название Организации </b></label>
-      <input type="text" placeholder="Название Организации" name="fname" required>
-
-      <label for="mame"><b>Ф.И.</b></label>
-      <input type="text" placeholder="Ф.И." name="name" required>
+      <input type="text" placeholder="Название Организации" name="username" required>
 
       <label for="email"><b>Email</b></label>
       <input type="text" placeholder="Enter Email" name="email" required>
@@ -32,10 +29,10 @@
 
       <label for="psw-repeat"><b>Повторите пороль</b></label>
       <input type="password" placeholder="Repeat Password" name="password2" required>
-      
+        {% csrf_token %}
       <div class="clearfix">
         <!-- <button type="button" class="cancelbtn">Cancel</button> -->
-        <button type="submit" class="signupbtn button-sign"> Sign up</button>
+        <input type="submit" class="signupbtn button-sign" value="Register">
       </div>
     </div>
   </form>

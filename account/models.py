@@ -7,6 +7,8 @@ from django.db import models
 class Profile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     photo = models.ImageField(upload_to='users/%Y/%m/%d', blank=True)
+    avatar = models.ImageField(upload_to='avatars/%Y/%m/%d', blank=True)
+    contact_number = models.IntegerField(max_length=32)
 
     def __str__(self):
         return 'Profile for user {}'.format(self.user.username)

@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="assets/css/demofi.css">
+  <link rel="stylesheet" href="/assets/css/demofi.css">
   <title>NoN</title>
 </head>
 <body>
@@ -21,17 +21,19 @@
       <hr>
 
       <label for="name"><b> Название Организации </b></label>
-      <input type="text" placeholder="Название Организации" name="or-name" required>
+      <input type="text" placeholder="Название Организации" name="username" required>
 
       <label for="psw"><b>Пароль</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
+      <input type="password" placeholder="Enter Password" name="password" required>
 
-      <p> <a href="#"> Вы зарегистрировались? </a> </p>
+      <p> <a href="{% url 'register' %}"> Вы зарегистрировались? </a> </p>
       <p> <a href="#">Забыли пароль ? </a> </p>
 
+        <input type="hidden" name="next" value="{{ next }}"/>
+                            {% csrf_token %}
       <div class="clearfix">
         <!-- <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button> -->
-        <button type="submit" class="signupbtn button-3">Sign Up</button>
+        <input type="submit" class="signupbtn button-3" value="Sign up">
       </div>
       
     </div>
