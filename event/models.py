@@ -9,11 +9,7 @@ class Event(models.Model):
                               related_name='events_created',
                               on_delete=models.CASCADE)
 
-<<<<<<< HEAD
-    title = models.CharField(max_length=32, null=True)
-=======
     title = models.CharField(max_length=32, blank=True)
->>>>>>> ed5bd200355a0695fd87fee12bfbb5cc1914a71e
     price = models.IntegerField(default=0)
     description = models.TextField(blank=True)
     start_time = models.DateTimeField(blank=True)
@@ -44,14 +40,6 @@ class Participant(models.Model):
 
 
 class News(models.Model):
-<<<<<<< HEAD
-    parent_event = models.ForeignKey(Event,
-                                     on_delete=models.CASCADE,
-                                     related_name='news', null=True)
-
-    slug = models.SlugField(max_length=255)
-    title = models.CharField(max_length=32, null=True)
-=======
     event = models.ForeignKey(Event,
                               on_delete=models.CASCADE)
     author = models.ForeignKey(settings.AUTH_USER_MODEL,
@@ -67,4 +55,3 @@ class News(models.Model):
 
     def __str__(self):
         return self.title + str(self.event)
->>>>>>> ed5bd200355a0695fd87fee12bfbb5cc1914a71e
