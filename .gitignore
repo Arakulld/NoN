@@ -61,5 +61,5 @@ docs/_build/
 target/
 
 migrations/
-*.sqllite3
-
+*.sqlite3
+test
