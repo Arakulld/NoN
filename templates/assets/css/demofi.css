@@ -13,7 +13,7 @@ body {
 .header {
   padding: 30px;
   text-align: center;
-  background: white;
+  background: rgb(199, 127, 44);
 }
 
 .header h1 {
@@ -66,7 +66,7 @@ body {
 
 /* Add a card effect for articles */
 .card {
-  background-color: white;
+  background-color: rgb(224, 136, 136);
   padding: 20px;
   margin-top: 20px;
 }
@@ -74,8 +74,8 @@ body {
 /* Clear floats after the columns */
 .row:after {
   content: "";
-  display: table;
-  clear: both;
+  display: inline;
+  /* clear: both; */
 }
 
 /* Footer */
@@ -104,7 +104,7 @@ body {
 
 /* ----- Sign Up ----- */
 /* Full-width input fields */
-  input[type=text], input[type=password] {
+  input /*[type=text], input[type=password, type=date],*/ {
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
@@ -133,10 +133,16 @@ input[type=text]:focus, input[type=password]:focus {
   padding-top: 50px;
 }
 
+/* -- Backgroung img for forms -- */
+
+section{
+  background-image: url("assets/css/img/back-1.jpg");
+}
+
 /* Modal Content/Box */
 .modal-content {
   display: flex;
-  background-color: #fefefe;
+  background-color: #dde6f3;
   margin: 5% auto 10% auto; /* 5% from the top, 15% from the bottom and centered */
   border: 1px solid rgb(214, 193, 98);
   width: 50%; /* Could be more or less, depending on screen size */
@@ -157,7 +163,7 @@ hr {
 
 /* Set a style for all buttons */
 .button-sign {
-  background-color: #4CAF50;
+  background-color: #4c98af;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -165,6 +171,7 @@ hr {
   cursor: pointer;
   width: 100%;
   opacity: 0.9;
+  
 }
 
 .button-sign :hover {
@@ -196,6 +203,7 @@ hr {
   cursor: pointer;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
+  align-items: right;
 }
 
 .button2:hover {
@@ -206,7 +214,6 @@ hr {
   background-color: red;
   color: white;
   padding: 10px 20px;
-
   border: none;
   cursor: pointer;
   width: 100%;
@@ -231,3 +238,62 @@ hr {
     width: 100%;
   }
 }
+
+/* --- Today news --- */
+
+div.gallery {
+  border: 1px solid #ccc;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+.responsive {
+  padding: 0 6px;
+  float: left;
+  width: 24.99999%;
+}
+
+
+
+@media only screen and (max-width: 700px) {
+  .responsive {
+    width: 49.99999%;
+    margin: 6px 0;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .responsive {
+    width: 100%;
+  }
+}
+/* --- Today news  end --- */
+
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+
+.div {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  padding: 2rem;
+}
+

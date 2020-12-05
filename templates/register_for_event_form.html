@@ -12,17 +12,18 @@
 <body>
 
    <!-- Регистрация на Мероприятие -->
-   <form action="action_page.php" style="border:1px solid #ccc">
+   <form class="modal-content" action="action_page.php" style="border:1px solid #ccc">
     <div class="container">
       <h2> Название Мероприятия </h2>
       <p> Подать заявку </p>
       <hr>
 
-      <label for="fname"><b> Имя Фамилия </b></label>
-      <input type="text" placeholder="Имя Фамилия" name="fname" required>
+      <label for="mame"><b>Имя Фамилия </b></label>
+      <input type="text" placeholder=" Имя Фамилия" name="name" required>
 
-      <label for="mame"><b> Название команды </b></label>
-      <input type="text" placeholder="Название команды" name="name" required>
+      <label for="fname"><b>  Название команды  </b></label>
+      <input type="text" placeholder="Название команды" name="fname" required>
+
 
       <label for="mame"><b> Ваша роль </b></label>
       <input type="text" placeholder="Ваша роль" name="name" required>
@@ -30,9 +31,9 @@
       <label for="email"><b>Email</b></label>
       <input type="text" placeholder="Enter Email" name="email" required>
 
-      <label for="mame"><b> Номер </b></label>
-      <input type="text" placeholder="Номер" name="name" required>
-
+      <label for="phone">Enter a phone number:</label><br><br>
+      <input type="tel" id="phone" name="phone" placeholder="99-123-45-67" pattern="[0-9]{2}-[0-9]{3}-[0-9]{2}-[0-9]{2}" required>
+      
       <div class="clearfix">
         <!-- <button type="button" class="cancelbtn">Cancel</button> -->
         <button type="submit" class="signupbtn button-sign"> Я в деле!</button>
