@@ -9,7 +9,7 @@ class Event(models.Model):
                               related_name='events_created',
                               on_delete=models.CASCADE)
 
-    title = models.CharField(max_length=32)
+    title = models.CharField(max_length=32, null=True)
     price = models.IntegerField(default=0)
     description = models.TextField()
     start_time = models.DateTimeField()
@@ -31,7 +31,7 @@ class Participant(models.Model):
 class News(models.Model):
     parent_event = models.ForeignKey(Event,
                                      on_delete=models.CASCADE,
-                                     related_name='news')
+                                     related_name='news', null=True)
 
     slug = models.SlugField(max_length=255)
-    title = models.CharField(max_length=32)
+    title = models.CharField(max_length=32, null=True)

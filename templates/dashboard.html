@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
      <head>
@@ -21,14 +22,14 @@
           <a class="navbar-brand" href="#">WebSiteName</a>
         </div>
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Home</a></li>
+          <li class="active"><a href="{% url 'dashboard' %}">Home</a></li>
           <li class="active"><a href="today.html">Today</a></li>
           <li class="active"><a href="week.html">This week</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <!-- <li><button style="width:auto;" class="button-3"> <a href="up.html">Sign Up</a></button></li> -->
           <li><a href="add_event_form.html"><button class="button-create"> +Создать Мероприятие </button> </a></li>
-          <li><a href="{% url 'register' %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li><a href="{% url 'register' %}"><span class="glyphicon glyphicon-user"></span> Register</a></li>
           <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         </ul>
       </div>
@@ -41,38 +42,13 @@
   
 
   <!-- News -->
-<<<<<<< HEAD
   
   <div class="clearfix"></div>
   <div class="info-menu">
     <div class="div">
       <div class="responsive">
         <div class="gallery">
-          <a target="_blank" href="assets/css/img/event.jpg">
-            <img src="assets/css/img/event.jpg" alt="Cinque Terre" width="600" height="400">
-          </a>
-          <div class="desc">Add a description of the image here</div>
-        </div>
-      </div>
-      <div class="responsive">
-        <div class="gallery">
-          <a target="_blank" href="assets/css/img/event.jpg">
-            <img src="assets/css/img/event.jpg" alt="Cinque Terre" width="600" height="400">
-          </a>
-          <div class="desc">Add a description of the image here</div>
-        </div>
-      </div>
-      <div class="responsive">
-        <div class="gallery">
-          <a target="_blank" href="assets/css/img/event.jpg">
-            <img src="assets/css/img/event.jpg" alt="Cinque Terre" width="600" height="400">
-          </a>
-          <div class="desc">Add a description of the image here</div>
-        </div>
-      </div>
-      <div class="responsive">
-        <div class="gallery">
-          <a target="_blank" href="assets/css/img/event.jpg">
+          <a target="_blank" href="{% url 'event_info' %}">
             <img src="assets/css/img/event.jpg" alt="Cinque Terre" width="600" height="400">
           </a>
           <div class="desc">Add a description of the image here</div>
@@ -80,16 +56,6 @@
       </div>
     </div>
 <div class="info-menu">
-    <div class="div">
-      <div class="responsive">
-        <div class="gallery">
-          <a target="_blank" href="assets/css/img/event.jpg">
-            <img src="assets/css/img/event.jpg" alt="Cinque Terre" width="600" height="400">
-          </a>
-          <div class="desc">Add a description of the image here</div>
-        </div>
-      </div>
-    </div>
 
   </div>
   <footer>
