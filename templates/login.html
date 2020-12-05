@@ -26,14 +26,23 @@
       <label for="psw"><b>Пароль</b></label>
       <input type="password" placeholder="Enter Password" name="password" required>
 
+<<<<<<< HEAD
+      <p> <a href="register.html"> У меня нет аккаунта </a> </p>
+      <p> <a href="#"> Забыли пароль ? </a> </p>
+=======
       <p> <a href="{% url 'register' %}"> Вы зарегистрировались? </a> </p>
       <p> <a href="#">Забыли пароль ? </a> </p>
+>>>>>>> 24a8fd67db643dcf6e6fef6dc69aebcf3fc8f60d
 
         <input type="hidden" name="next" value="{{ next }}"/>
                             {% csrf_token %}
       <div class="clearfix">
         <!-- <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button> -->
+<<<<<<< HEAD
+        <button type="submit" class="signupbtn button-sign">Sign Up</button>
+=======
         <input type="submit" class="signupbtn button-3" value="Sign up">
+>>>>>>> 24a8fd67db643dcf6e6fef6dc69aebcf3fc8f60d
       </div>
       
     </div>

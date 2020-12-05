@@ -12,7 +12,7 @@
 <body>
 
     <!-- Создать Мероприятие -->
-   <form action="action_page.php" style="border:1px solid #ccc">
+   <form class="modal-content back-img" action="action_page.php" style="border:1px solid #ccc">
     <div class="container">
       <h2> Создать мероприятие </h2>
       <p> Регистрационная форма на мероприятие </p>
@@ -30,14 +30,17 @@
       <label for="time"><b>Дата и Время</b></label>
       <input type="date" placeholder="Дата и Время" name="time" required>
 
-      <label for="num"><b> Количество участников </b></label>
-      <input type="number" placeholder="Количество участников" name="num" required>
+      <label for="num1"><b> Количество участников </b></label>
+      <input type="number" placeholder="Количество участников" name="num1" required>
 
       <label for="num"><b> Контакты </b></label>
       <input type="number" placeholder=" Контакты" name="num" required>
 
       <label for="info"><b> Информация про Мероприятие </b></label>
       <input type="text" placeholder="Информация про Мероприятие" name="info" required>
+
+      <label for="myfile">Загрузить Фото</label>
+      <input type="file" id="myfile" name="myfile">
 
       <div class="clearfix">
         <!-- <button type="button" class="cancelbtn">Cancel</button> -->

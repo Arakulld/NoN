@@ -12,6 +12,20 @@
 <body>
 
    <!-- Sign Up -->
+<<<<<<< HEAD
+  <section>
+    <form class="modal-content back-img" action="action_page.php" style="border:1px solid #ccc">
+      <div class="container">
+        <h2>Создать Аккаунт</h2>
+        <p>Для участия в мероприятих нужно зарегистритоваться</p>
+        <hr>
+
+        <label for="fname"><b> Название Организации </b></label>
+        <input type="text" placeholder="Название Организации" name="fname" required>
+
+        <label for="mame"><b>Ф.И.</b></label>
+        <input type="text" placeholder="Ф.И." name="name" required>
+=======
    <form action="." method="post" style="border:1px solid #ccc">
     <div class="container">
       <h2>Sign Up</h2>
@@ -20,22 +34,37 @@
 
       <label for="fname"><b> Название Организации </b></label>
       <input type="text" placeholder="Название Организации" name="username" required>
+>>>>>>> 24a8fd67db643dcf6e6fef6dc69aebcf3fc8f60d
 
-      <label for="email"><b>Email</b></label>
-      <input type="text" placeholder="Enter Email" name="email" required>
+        <label for="email"><b>Адрес электронной почты</b></label>
+        <input type="text" placeholder="Enter Email" name="email" required>
 
-      <label for="psw"><b>Пароль</b></label>
-      <input type="password" placeholder="Enter Password" name="password" required>
+        <label for="psw"><b>Пароль</b></label>
+        <input type="password" placeholder="Enter Password" name="password" required>
 
+<<<<<<< HEAD
+        <label for="psw-repeat"><b>Подтвердите пароль</b></label>
+        <input type="password" placeholder="Repeat Password" name="password2" required>
+        
+        <div class="clearfix">
+          <!-- <button type="button" class="cancelbtn">Cancel</button> -->
+          <button type="submit" class="signupbtn button-sign"> Sign up</button>
+        </div>
+=======
       <label for="psw-repeat"><b>Повторите пороль</b></label>
       <input type="password" placeholder="Repeat Password" name="password2" required>
         {% csrf_token %}
       <div class="clearfix">
         <!-- <button type="button" class="cancelbtn">Cancel</button> -->
         <input type="submit" class="signupbtn button-sign" value="Register">
+>>>>>>> 24a8fd67db643dcf6e6fef6dc69aebcf3fc8f60d
       </div>
-    </div>
-  </form>
+    </form>
+  </section>
+  
+  <div>
+    <img src="" alt="">
+  </div>
   
 </body>
 </html>

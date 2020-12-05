@@ -61,5 +61,10 @@ docs/_build/
 target/
 
 migrations/
+<<<<<<< HEAD
 *.sqlite3
 test
+=======
+*.sqllite3
+
+>>>>>>> 43cc4fe5698b4e5d6944cb96f94296b293a2f167
