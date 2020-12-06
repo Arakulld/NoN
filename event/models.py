@@ -1,6 +1,9 @@
 from django.db import models
+from django.shortcuts import reverse
 from django.conf import settings
 from django.contrib.auth.models import User
+from django.utils.text import slugify
+from datetime import datetime
 import os
 
 
@@ -18,15 +21,31 @@ class Event(models.Model):
     description = models.TextField(blank=True)
     max_participants = models.IntegerField(default=10)
     support_number = models.CharField(blank=True, max_length=13)
-    start_time = models.DateTimeField(blank=True)
-    end_time = models.DateTimeField(blank=True)
-    longitude = models.CharField(max_length=32, blank=True, null=True)
-    latitude = models.CharField(max_length=32, blank=True, null=True)
+    start_time = models.DateTimeField(default=datetime.now())
+    end_time = models.DateTimeField(default=datetime.now())
+    place = models.CharField(max_length=250, blank=True)
+    # longitude = models.CharField(max_length=32, blank=True, null=True)
+    # latitude = models.CharField(max_length=32, blank=True, null=True)
 
-    created = models.DateTimeField(auto_now_add=True)
+    created = models.DateTimeField(default=datetime.now())
 
     class Meta:
         ordering = ('-created',)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super(Event, self).save()
+        return self
+
+    def get_absolute_url(self):
+        return reverse('event_detail', args=[self.slug,
+                                             self.created.year,
+                                             self.created.month,
+                                             self.created.day,
+                                             self.created.hour,
+                                             self.created.minute,
+                                             self.created.second])
 
     def __str__(self):
         return self.title
@@ -103,4 +122,4 @@ class Comment(models.Model):
                                on_delete=models.CASCADE,
                                related_name='author_comments')
     message = models.TextField()
-    created = models.DateTimeField(auto_now=True)
+    created = models.DateTimeField(default=datetime.now())

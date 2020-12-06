@@ -4,7 +4,7 @@ from .models import Event, Participant, News, Attendance
 
 @admin.register(Event)
 class AdminEvents(admin.ModelAdmin):
-    list_display = ('title', 'slug', 'company', 'image', 'owner', 'description')
+    list_display = ('title', 'slug', 'company', 'image', 'owner', 'description', 'created')
 
 
 @admin.register(Participant)

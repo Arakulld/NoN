@@ -1,77 +1,81 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-     <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="assets/css/demofi.css">
-  <title>NoN</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="assets/css/demofi.css">
+    <title>NoN</title>
 </head>
 <body>
-  <div class="header">
+<div class="header">
     <h1>Добро пожаловать!</h1>
     <p>Организуйте мероприятия быстро и легко </p>
-  </div>
-  <div class="topnav">
+</div>
+<div class="topnav">
     <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="{% url 'dashboard' %}">WiGo-WiGo</a>
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="{% url 'dashboard' %}">WiGo-WiGo</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="{% url 'events_today' %}">Сегодня</a></li>
+                <li class="active"><a href="{% url 'events_this_week' %}">На этой недели</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <!-- <li><button style="width:auto;" class="button-3"> <a href="up.html">Sign Up</a></button></li> -->
+                {% if request.user.is_authenticated %}
+                    <li><a href="{% url 'add_event' %}">
+                        <button class="button-create"> +Создать Мероприятие</button>
+                    </a></li>
+                    <li><a href="{% url 'account' %}"><span class="glyphicon glyphicon-user"></span> {{ user.username }}
+                    </a></li>
+                    <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-in"></span> Выйти </a></li>
+                {% else %}
+                    <li><a href="{% url 'register' %}"><span class="glyphicon glyphicon-user"></span> Регистрация </a>
+                    </li>
+                    <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Войти </a></li>
+                {% endif %}
+            </ul>
         </div>
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="{% url 'events_today' %}">Сегодня</a></li>
-          <li class="active"><a href="{% url 'events_this_week' %}">На этой недели</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <!-- <li><button style="width:auto;" class="button-3"> <a href="up.html">Sign Up</a></button></li> -->
-        <li><a href="add_event_form.html"><button class="button-create"> +Создать Мероприятие </button> </a></li>
-            {% if request.user.is_authenticated %}
-                <li><a href="{% url 'account' %}"><span class="glyphicon glyphicon-user"></span> {{ user.username }}</a></li>
-                <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-in"></span> Выйти </a></li>
-            {% else %}
-                <li><a href="{% url 'register' %}"><span class="glyphicon glyphicon-user"></span> Регистрация </a></li>
-                <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Войти </a></li>
-            {% endif %}
-        </ul>
-      </div>
     </nav>
-  </div>
+</div>
 
 
+<!-- News -->
 
-
-
-
-  <!-- News -->
-  
-  <div class="info-menu">
+<div class="info-menu">
     <div class="news-point">
-      <div class="responsive">
-        <div class="gallery">
-          <a target="_blank" href="{% url 'event_info' %}">
-            <img class="info-menu-img" src="assets/css/img/event.jpg" alt="Cinque Terre">
-              <style>
-                  .info-menu-img {
-                      width: 300px;
-                      height: 300px;
-                  }
-              </style>
-          </a>
-          <div class="desc">Сохранение окружаюшей среды</div>
-        </div>
-      </div>
+        {% for event in events %}
+            <div class="responsive">
+                <div class="gallery">
+                    <a target="_blank" href="{{ event.get_absolute_url }}">
+                        <img class="info-menu-img" src="
+                                {% if event.image %}{{ event.image.url }}{% else %}assets/css/img/event.jpg{% endif %}"
+                             alt="Cinque Terre">
+                        <style>
+                            .info-menu-img {
+                                width: 300px;
+                                height: 300px;
+                            }
+                        </style>
+                    </a>
+                    <div class="desc">{{ event.title }}</div>
+                </div>
+            </div>
+        {% endfor %}
     </div>
-  </div>
+</div>
 
-  <footer>
+<footer>
     <div class="footer">
-      <h2>Footer</h2>
+        <h2>Footer</h2>
     </div>
-  </footer>
-  
-  <script src="js/function.js"></script>
+</footer>
+
+<script src="js/function.js"></script>
 </body>
 </html>
