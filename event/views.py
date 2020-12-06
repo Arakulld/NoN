@@ -4,6 +4,7 @@ from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.http import Http404
 from django.contrib import messages
+from .forms import CreateEventForm
 from . import models
 import qrcode
 import os
@@ -24,6 +25,21 @@ def add_qr_code_to_participant(data, participant, user, event):
     os.remove(old_path)
 
 
+def add_event(request):
+    if request.method == 'POST':
+        form = CreateEventForm(data=request.POST)
+        form = form.save(commit=False)
+        form.owner = request.user
+
+
+def add_image_to_event(event):
+    old_path = event.image.path
+    ext = old_path.rsplit('.', 1)[1].lower()
+    event.image.save(f'{event.owner.username}/{event.slug + event.created.strftime("%Y-""%d-""%m")}.{ext}',
+                     open(old_path, "rb"), True)
+    os.remove(old_path)
+
+
 @login_required
 def add_participant(request, slug, year, month, day):
     if request.method == 'POST':
@@ -33,7 +49,7 @@ def add_participant(request, slug, year, month, day):
                                   month=month,
                                   day=day)
         try:
-            participant = event.participants.get(user=request.user)
+            participant = event.participants.create(user=request.user, event=event)
         except models.Participant.DoesNotExist:
             raise Http404
         add_qr_code_to_participant('',
@@ -90,3 +106,10 @@ def event_detail(request, slug, year, month, day):
     return render(request,
                   '',
                   {'even': event})
+
+
+def test_view(request):
+    form = CreateEventForm()
+    return render(request,
+                  'form_test.html',
+                  {'form': form})
