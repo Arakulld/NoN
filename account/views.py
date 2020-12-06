@@ -1,16 +1,31 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render, redirect
 from django.contrib.auth import views as auth_view
-
-
-# Create your views here.
 from account.forms import UserRegistrationForm, UserEditForm, ProfileEditForm
 from account.models import Profile
+from event import models
 
 
 def dashboard(request):
-    return render(request, 'dashboard.html')
+    if 'display_my' in request.GET and request.GET['display_my'] == 'participating':
+        list_events = models.Event.objects.filter(owner=request.user)
+    elif 'display_my' in request.GET and request.GET['display_my'] == 'created':
+        list_events = models.Event.objects.filter(participants__user=request.user)
+    else:
+        list_events = models.Event.objects.all()
+    paginator = Paginator(list_events, 20)
+    page = request.GET.get('page')
+    try:
+        events = paginator.page(page)
+    except PageNotAnInteger:
+        events = paginator.page(1)
+    except EmptyPage:
+        events = paginator.page(paginator.num_pages)
+    return render(request, 'dashboard.html',
+                  {'page': page,
+                   'events': events})
 
 
 def events_for_today(request):
