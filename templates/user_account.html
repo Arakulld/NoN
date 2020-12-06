@@ -16,11 +16,6 @@
   <label for="slider"></label>
 
   <div class="wrapper">
-    <div class="top-icons">
-      <i class="fas fa-long-arrow-alt-left"></i>
-      <i class="fas fa-ellipsis-v"></i>
-      <i class="far fa-heart"></i>
-    </div>
     {% if messages %}
     <ul class="messages">
       {% for message in messages %}
@@ -30,40 +25,39 @@
         </li>
       {% endfor %}
     </ul>
-  {% endif %}
+   {% endif %}
     <div class="profile">
       <img src="https://images.unsplash.com/photo-1484186139897-d5fc6b908812?ixlib=rb-0.3.5&s=9358d797b2e1370884aa51b0ab94f706&auto=format&fit=crop&w=200&q=80%20500w" class="thumbnail">
       <div class="check"><i class="fas fa-check"></i></div>
       <h3 class="name">Beverly Little</h3>
       <p class="title">Javascript Developer</p>
-      <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque aliquam aliquid porro!</p>
-      <button type="button" class="btn">Hire Me</button>
+    </div>
+    <div class="orders">
+      <div class="order-punkt">
+        <div class="responsive">
+          <div class="gallery">
+            <a target="_blank" href="{% url 'event_info' %}">
+              <img src="/assets/css/img/event.jpg" alt="Cinque Terre" width="600" height="400">
+            </a>
+            <div class="desc">Сохранение окружаюшей среды</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="created-events">
+      <div class="order-punkt">
+        <div class="responsive">
+          <div class="gallery">
+            <a target="_blank" href="{% url 'event_info' %}">
+              <img src="/assets/css/img/event.jpg" alt="Cinque Terre" width="600" height="400">
+            </a>
+            <div class="desc">Сохранение окружаюшей среды</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  
-  <!-- Tab links -->
-  <div class="tab">
-    <button class="tablinks" onclick="openCity(event, 'London')">London</button>
-    <button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>
-    <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
-  </div>
-
-  <!-- Tab content -->
-  <div id="London" class="tabcontent">
-    <h3>London</h3>
-    <p>London is the capital city of England.</p>
-  </div>
-
-  <div id="Paris" class="tabcontent">
-    <h3>Paris</h3>
-    <p>Paris is the capital of France.</p>
-  </div>
-  <li><a href="{% url 'edit_account' %}"><span class="glyphicon glyphicon-log-in"></span> Войти </a></li>
-
-  <div id="Tokyo" class="tabcontent">
-    <h3>Tokyo</h3>
-    <p>Tokyo is the capital of Japan.</p>
-  </div>
-  <script src="/js/function.js"></script>
+  <script src="js/function.js"></script>
 </body>
 </html>
