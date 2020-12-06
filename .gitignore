@@ -64,3 +64,4 @@ migrations/
 *.sqlite3
 test
 media/participants/qr_codes/
+media/events

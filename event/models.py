@@ -12,6 +12,8 @@ class Event(models.Model):
     company = models.CharField(max_length=64, blank=True, null=True)
 
     title = models.CharField(max_length=32, blank=True)
+    image = models.ImageField(upload_to='events/images',
+                              blank=True)
     price = models.IntegerField(default=0)
     description = models.TextField(blank=True)
     start_time = models.DateTimeField(blank=True)

@@ -4,6 +4,7 @@ from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.http import Http404
 from django.contrib import messages
+from .forms import CreateEventForm
 from . import models
 import qrcode
 import os
@@ -21,6 +22,14 @@ def add_qr_code_to_participant(data, participant, user, event):
     new_path = settings.QR_CODE_SAVE_NAME.format(namespace=user.username, user_id=user.pk,
                                                  event_id=event.id, ext=settings.QR_CODE_EXT)
     participant.qr_code.save(new_path, open(old_path, "rb"), True)
+    os.remove(old_path)
+
+
+def add_image_to_event(event):
+    old_path = event.image.path
+    ext = old_path.rsplit('.', 1)[1].lower()
+    event.image.save(f'{event.owner.username}/{event.slug + event.created.strftime("%Y-""%d-""%m")}.{ext}',
+                     open(old_path, "rb"), True)
     os.remove(old_path)
 
 
@@ -90,3 +99,10 @@ def event_detail(request, slug, year, month, day):
     return render(request,
                   '',
                   {'even': event})
+
+
+def test_view(request):
+    form = CreateEventForm()
+    return render(request,
+                  'form_test.html',
+                  {'form': form})
