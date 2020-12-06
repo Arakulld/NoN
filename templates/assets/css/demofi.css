@@ -263,20 +263,35 @@ div.desc {
 
 /* --- User Account --- */
 
+#user_account
+
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  /* background-color: aquamarine; */
+}
+
 .profile{
   display: flex;
   flex-direction: row;
 }
 
+.profile img{
+  border-radius: 60%;
+}
 .order{
   border: 6px solid orange;
   padding: 15px;
+  margin: 20px;
+  height: 220px;
 }
 
 .create-event{
   border: 6px solid orange;
   padding: 15px;
-  margin: 15px;
+  margin: 20px;
+  height: 220px;
 }
 .order-punkt {
   display: flex;
