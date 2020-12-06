@@ -14,31 +14,31 @@
 
      <!-- Login -->
   
-  
-  <form class="modal-content" action="." method="post">
-    <div class="container">
-      <h2>Login</h2>
-      <p>Please fill in this form to create an account.</p>
-      <hr>
+  <section>
+    <form class="modal-content" action="." method="post">
+      <div class="container">
+        <h2>Войти</h2>
+        <p>Войдите в аккаунт для регистрации</p>
+        <hr>
 
-      <label for="name"><b> Название Организации </b></label>
-      <input type="text" placeholder="Название Организации" name="username" required>
+        <label for="name"><b> Название Организации </b></label>
+        <input type="text" placeholder="Название Организации" name="username" required>
 
-      <label for="psw"><b>Пароль</b></label>
-      <input type="password" placeholder="Enter Password" name="password" required>
+        <label for="psw"><b>Пароль</b></label>
+        <input type="password" placeholder="Enter Password" name="password" required>
 
-      <p> <a href="{% url 'register' %}"> Вы зарегистрировались? </a> </p>
-      <p> <a href="#">Забыли пароль ? </a> </p>
+        <p> <a href="{% url 'register' %}"> Вы зарегистрировались? </a> </p>
+        <p> <a href="#">Забыли пароль ? </a> </p>
 
-        <input type="hidden" name="next" value="{{ next }}"/>
-                            {% csrf_token %}
-      <div class="clearfix">
-        <input type="submit" class="signupbtn button-sign" value="Log in">
+          <input type="hidden" name="next" value="{{ next }}"/>
+                              {% csrf_token %}
+        <div class="clearfix">
+          <input type="submit" class="signupbtn button-sign" value="Log in">
+        </div>
+        
       </div>
-      
-    </div>
-  </form>
-  
+    </form>
+  </section>
   
 </body>
 </html>

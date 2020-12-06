@@ -13,25 +13,24 @@
 <body>
   <div class="header">
     <h1>Добро пожаловать!</h1>
-    <p>Быстро и легко организуйте мероприятия  </p>
+    <p>Организуйте мероприятия быстро и легко </p>
   </div>
   <div class="topnav">
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#">WebSiteName</a>
+          <a class="navbar-brand" href="{% url 'dashboard' %}">WiGo-WiGo</a>
         </div>
         <ul class="nav navbar-nav">
-          <li class="active"><a href="{% url 'dashboard' %}">Home</a></li>
-          <li class="active"><a href="today.html">Today</a></li>
-          <li class="active"><a href="week.html">This week</a></li>
+          <li class="active"><a href="today.html">Сегодня</a></li>
+          <li class="active"><a href="week.html">На этой недели</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <!-- <li><button style="width:auto;" class="button-3"> <a href="up.html">Sign Up</a></button></li> -->
           <li><a href="add_event_form.html"><button class="button-create"> +Создать Мероприятие </button> </a></li>
-          <li><a href="{% url 'register' %}"><span class="glyphicon glyphicon-user"></span> Register</a></li>
-          <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-          <li><a href=""><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          <li><a href="{% url 'register' %}"><span class="glyphicon glyphicon-user"></span> Регистрация </a></li>
+          <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Войти </a></li>
+          <li><a href="user_account.html"><span class="glyphicon glyphicon-log-in"></span> gfgdf</a></li>
         </ul>
       </div>
     </nav>
@@ -51,7 +50,7 @@
           <a target="_blank" href="more-info.html">
             <img src="assets/css/img/event.jpg" alt="Cinque Terre" width="600" height="400">
           </a>
-          <div class="desc">Add a description of the image here</div>
+          <div class="desc">Сохранение окружаюшей среды</div>
         </div>
       </div>
     </div>
