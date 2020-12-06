@@ -27,10 +27,13 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="add_event_form.html"><button class="button-create"> +Создать Мероприятие </button> </a></li>
-<<<<<<< HEAD
-          <li><a href="{% url 'register' %}"><span class="glyphicon glyphicon-user"></span> Регистрация</a></li>
-          <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Войти</a></li>
-          <li><a href="user_account.html"><span class="glyphicon glyphicon-log-in"></span> afgdf</a></li>
+            {% if request.user.is_authenticated %}
+                <li><a href="{% url 'account' %}"><span class="glyphicon glyphicon-user"></span> {{ user.username }}</a></li>
+                <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-in"></span> Выйти </a></li>
+            {% else %}
+                <li><a href="{% url 'register' %}"><span class="glyphicon glyphicon-user"></span> Регистрация </a></li>
+                <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Войти </a></li>
+            {% endif %}
         </ul>
       </div>
     </nav>

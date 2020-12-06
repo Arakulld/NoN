@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="/assets/css/demofi.css">
+  <title>NoN</title>
+</head>
+<body>
+
+   <!-- Sign Up -->
+  <section>
+   <form action="." class="modal-content" method="post" style="border:1px solid #ccc">
+    <div class="container">
+      <h2> Измененить аккаунт</h2>
+
+      <label for="username"><b> Username </b></label>
+      <input type="text" placeholder="username" name="username" required value="{{ user.username }}">
+
+        <label for="username"><b> Имя </b></label>
+      <input type="text" placeholder="Имя" name="first_name" required value="{{ user.first_name }}">
+
+        <label for="username"><b> Фамилия </b></label>
+      <input type="text" placeholder="Фамилия" name="last_name" required value="{{ user.last_name }}">
+
+        <label for="email"><b>Электронная почта</b></label>
+        <input type="text" placeholder="Электронная почта" name="email" required value="{{ user.email }}">
+
+        <label for="username"><b> Возраст </b></label>
+      <input type="number" placeholder="Возраст" name="last_name" required value="{{ user.profile.age }}">
+
+        <label for="username"><b> Пол </b></label>
+      <input type="text" placeholder="Пол" name="last_name" required value="{{ user.profile.gender }}">
+
+        <label for="username"><b> Номер телефона </b></label>
+      <input type="" placeholder="Номер телефона" name="last_name" required value="{{ user.profile.contact_number }}">
+
+        <label for="photo">Загрузить Фото</label>
+      <input type="file" id="myfile" name="photo">
+        {% csrf_token %}
+      <div class="clearfix">
+        <!-- <button type="button" class="cancelbtn">Cancel</button> -->
+        <input type="submit" class="signupbtn button-sign" value="Edit account">
+      </div>
+    </div>
+    </form>
+  </section>
+
+  <div>
+    <img src="" alt="">
+  </div>
+
+</body>
+</html>

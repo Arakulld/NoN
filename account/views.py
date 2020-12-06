@@ -49,7 +49,12 @@ def register(request):
 
 
 @login_required
-def settings(request):
+def account(request):
+    return render(request, 'user_account.html')
+
+
+@login_required
+def edit_account(request):
     if request.method == 'POST':
         try:
             Profile.objects.get(user=request.user)
@@ -62,6 +67,7 @@ def settings(request):
             user_form.save()
             profile_form.save()
             messages.success(request, 'Profile updated successfully')
+            return redirect(request, 'dashboard')
         else:
             messages.error(request, 'Error updating profile')
-    return render(request, 'user_account.html')
+    return render(request, 'edit_account.html')

@@ -7,16 +7,15 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="assets/css/demofi.css">
+  <link rel="stylesheet" href="/assets/css/demofi.css">
   <title>NoN</title>
 </head>
 <body>
   
-  <input id="slider" class="customSlider" type="checkbox">
-  <label for="slider"></label>
-
+  
+<main id="user_account">  
   <div class="wrapper">
-    {% if messages %}
+    <!-- {% if messages %}
     <ul class="messages">
       {% for message in messages %}
         <li class="{{ message.tags }}">
@@ -25,14 +24,15 @@
         </li>
       {% endfor %}
     </ul>
-   {% endif %}
+   {% endif %} -->
+
     <div class="profile">
       <img src="https://images.unsplash.com/photo-1484186139897-d5fc6b908812?ixlib=rb-0.3.5&s=9358d797b2e1370884aa51b0ab94f706&auto=format&fit=crop&w=200&q=80%20500w" class="thumbnail">
       <div class="check"><i class="fas fa-check"></i></div>
-      <h3 class="name">Beverly Little</h3>
-      <p class="title">Javascript Developer</p>
+      <h3 class="name">Beverly Little</h3> <br>
+      <div><p class="title">Javascript Developer</p> </div>
     </div>
-    <div class="order">
+    <div class="orders">
       <div class="order-punkt">
         <div class="responsive">
           <div class="gallery">
@@ -45,7 +45,7 @@
       </div>
     </div>
 
-    <div class="create-event">
+    <div class="created-events">
       <div class="order-punkt">
         <div class="responsive">
           <div class="gallery">
@@ -58,8 +58,7 @@
       </div>
     </div>
   </div>
-  
-  
+ </main> 
   <script src="js/function.js"></script>
 </body>
 </html>
