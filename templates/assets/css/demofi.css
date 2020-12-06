@@ -274,6 +274,7 @@ div.desc {
 
 }
 
+
 .wrapper{
   display: flex;
   flex-direction: column;
@@ -281,24 +282,21 @@ div.desc {
   /* background-color: aquamarine; */
 }
 
-
-.name-1{
+.wrapper h3{
   margin-left: 45%;
-  /* margin-top: 12%; */
 }
 
-
-.profile {
+.container {
   position: relative;
   width: 100%;
   max-width: 200px;
 }
 
-.profile img {
+.container img {
   border-radius: 60%;
 }
 
-.profile .btn {
+.container .btn {
   position: absolute;
   top: 90%;
   left: 80%;
@@ -314,7 +312,7 @@ div.desc {
   text-align: center;
 }
 
-.profile .btn:hover {
+.container .btn:hover {
   background-color: black;
 }
 
