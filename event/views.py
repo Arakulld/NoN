@@ -69,7 +69,7 @@ def add_participant(request, slug, year, month, day, hour, minute, second):
         return HttpResponse('You are alreday participant.')
     except models.Participant.DoesNotExist:
         participant = event.participants.create(user=request.user, event=event)
-    add_qr_code_to_participant('http://192.168.111.95.8000/event' + reverse('check_attendance', args=[event.pk]),
+    add_qr_code_to_participant('http://192.168.111.95.8000' + reverse('check_attendance', args=[event.pk]),
                                participant=participant,
                                event=event,
                                user=request.user)
