@@ -44,7 +44,7 @@
                 <input type="number" placeholder="Номер телефона" name="contact_number" value="{{ user.profile.contact_number }}">
 
                 <label for="photo">Загрузить Фото</label>
-                <input type="file" id="myfile" name="photo" accept="image/*">
+                <input type="file" id="myfile" class="file-upload-default" name="photo" accept="image/*">
                 {% csrf_token %}
                 <div class="clearfix">
                     <!-- <button type="button" class="cancelbtn">Cancel</button> -->
