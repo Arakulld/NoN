@@ -8,5 +8,7 @@ urlpatterns = [
     path('event_info/', views.info_about_event, name='event_info'),
     path('register/', views.register, name='register'),
     path('events_today/', views.events_for_today, name='events_today'),
-    path('events_this_week', views.events_for_this_week, name='events_this_week')
+    path('events_this_week/', views.events_for_this_week, name='events_this_week'),
+    path('account/', views.account, name='account'),
+    path('edit_account/', views.edit_account, name='edit_account')
 ]
