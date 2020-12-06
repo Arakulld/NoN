@@ -1,5 +1,5 @@
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.http import Http404, HttpResponse
@@ -55,28 +55,25 @@ def add_event(request):
 
 @login_required
 def add_participant(request, slug, year, month, day, hour, minute, second):
-    if request.method == 'POST':
-        event = get_object_or_404(models.Event,
-                                  slug=slug,
-                                  created__year=year,
-                                  created__month=month,
-                                  created__day=day,
-                                  created__hour=hour,
-                                  created__minute=minute,
-                                  created__second=second
-                                  )
-        try:
-            participant = event.participants.create(user=request.user, event=event)
-        except models.Participant.DoesNotExist:
-            raise Http404
-        add_qr_code_to_participant('',
-                                   participant=participant,
-                                   event=event,
-                                   user=request.user)
-        messages.success(request, 'Registered successfully.')
-        redirect('dashboard')
-    else:
-        raise Http404
+    event = get_object_or_404(models.Event,
+                              slug=slug,
+                              created__year=year,
+                              created__month=month,
+                              created__day=day,
+                              created__hour=hour,
+                              created__minute=minute,
+                              created__second=second
+                              )
+    try:
+        participant = event.participants.get(user=request.user, event=event)
+        return HttpResponse('You are alreday participant.')
+    except models.Participant.DoesNotExist:
+        participant = event.participants.create(user=request.user, event=event)
+    add_qr_code_to_participant(request.build_absolute_uri() + reverse('check_attendance', args=[event.pk]),
+                               participant=participant,
+                               event=event,
+                               user=request.user)
+    return HttpResponse('Registred sucessfully.')
 
 
 @login_required
@@ -86,16 +83,17 @@ def check_attendance_participant(request, event_id):
         participant = event.participants.get(user=request.user)
         time_now = datetime.now()
         try:
-            participant.attendance.get(date__year=time_now.year, date__month=time_now.month,
-                                       date__day=time_now.minute)
-            return HttpResponse()
+            # participant.attendance.get(date__year=time_now.year, date__month=time_now.month,
+            #                            date__day=time_now.minute)
+            participant.attendance.filter(participant=participant)
+            return HttpResponse('Already marked as attended.')
         except models.Attendance.DoesNotExist:
             if event.start_time < time_now < event.end_time:
                 models.Attendance.objects.create(participant=participant, date=time_now)
-            return HttpResponse()
+            return HttpResponse('Success')
 
     except models.Participant.DoesNotExist:
-        return HttpResponse()
+        return HttpResponse('Your are not a participant of this event.')
 
 
 @login_required

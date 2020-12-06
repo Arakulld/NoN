@@ -52,7 +52,7 @@
           <img src="/assets/css/img/22033.jpg" style="width:380px; height:200px;" alt="">
         </div>
         <p>{{ event.description }}</p>
-        <a href="register_for_event_form.html"><button class="button-info button2"> Регистрация на ивент </button> </a>
+        <a href="{{ event.get_ad_participant_url }}"><button class="button-info button2"> Регистрация на ивент </button> </a>
       </div>
     </div>
   </div>

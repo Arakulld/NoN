@@ -47,6 +47,15 @@ class Event(models.Model):
                                              self.created.minute,
                                              self.created.second])
 
+    def get_ad_participant_url(self):
+        return reverse('add_participant', args=[self.slug,
+                                                self.created.year,
+                                                self.created.month,
+                                                self.created.day,
+                                                self.created.hour,
+                                                self.created.minute,
+                                                self.created.second])
+
     def __str__(self):
         return self.title
 

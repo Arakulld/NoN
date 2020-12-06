@@ -53,8 +53,8 @@
             <div class="responsive">
                 <div class="gallery">
                     <a target="_blank" href="{{ event.get_absolute_url }}">
-                        <img class="info-menu-img" src="
-                                {% if event.image %}{{ event.image.url }}{% else %}assets/css/img/event.jpg{% endif %}"
+                        <img class="info-menu-img"
+                             src="{% if event.image %}{{ event.image.url }}{% else %}assets/css/img/event.jpg{% endif %}"
                              alt="Cinque Terre">
                         <style>
                             .info-menu-img {
