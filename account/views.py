@@ -67,7 +67,7 @@ def edit_account(request):
             user_form.save()
             profile_form.save()
             messages.success(request, 'Profile updated successfully')
-            return redirect(request, 'dashboard')
+            return redirect('account')
         else:
             messages.error(request, 'Error updating profile')
     return render(request, 'edit_account.html')
