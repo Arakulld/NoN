@@ -38,6 +38,7 @@ def add_image_to_event(event):
 def add_event(request):
     if request.method == 'POST':
         form = CreateEventForm(data=request.POST, files=request.FILES)
+        print(form.errors.as_json())
         if form.is_valid():
             form = form.save(commit=False)
             form.owner = request.user
@@ -46,7 +47,7 @@ def add_event(request):
             add_image_to_event(form)
             return redirect('dashboard')
         else:
-            return HttpResponse('Failed.')
+            raise Http404
     else:
         return render(request, 'add_event_form.html')
 

@@ -263,7 +263,6 @@ div.desc {
     clear: both;
 }
 
-
 .news-point {
     display: flex;
     flex-direction: row;
@@ -274,7 +273,11 @@ div.desc {
 
 /* --- User Account --- */
 
-#user_account
+#user_account_body {
+    background-image: url("img/back-2.jpg");
+
+}
+
 .wrapper {
     display: flex;
     flex-direction: column;
@@ -282,24 +285,52 @@ div.desc {
     /* background-color: aquamarine; */
 }
 
+
+.name-1 {
+    margin-left: 45%;
+    /* margin-top: 12%; */
+}
+
+
 .profile {
-    display: flex;
-    flex-direction: row;
+    position: relative;
+    width: 100%;
+    max-width: 200px;
 }
 
 .profile img {
     border-radius: 60%;
 }
 
+.profile .btn {
+    position: absolute;
+    top: 90%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #555;
+    color: white;
+    font-size: 16px;
+    padding: 8px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.profile .btn:hover {
+    background-color: black;
+}
+
 .order {
-    border: 6px solid orange;
+    border: 10px solid orange;
     padding: 15px;
     margin: 20px;
     height: 220px;
 }
 
 .create-event {
-    border: 6px solid orange;
+    border: 15px solid orange;
     padding: 15px;
     margin: 20px;
     height: 220px;
@@ -315,6 +346,41 @@ div.desc {
 
 /* --- End User Acoount --- */
 
+
+/* --- List of partisipate --- */
+#list_for_partisipate {
+    margin: 20px;
+    background-image: url("assets/css/demofi.css");
+}
+
+#customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#customers tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#customers tr:hover {
+    background-color: #ddd;
+}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* --- List of partisipate End --- */
 
 /* Style the tab */
 .tab {
