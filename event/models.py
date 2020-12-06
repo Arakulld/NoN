@@ -16,6 +16,8 @@ class Event(models.Model):
                               blank=True)
     price = models.IntegerField(default=0)
     description = models.TextField(blank=True)
+    max_participants = models.IntegerField(default=10)
+    support_number = models.CharField(blank=True, max_length=13)
     start_time = models.DateTimeField(blank=True)
     end_time = models.DateTimeField(blank=True)
     longitude = models.CharField(max_length=32, blank=True, null=True)

@@ -25,6 +25,13 @@ def add_qr_code_to_participant(data, participant, user, event):
     os.remove(old_path)
 
 
+def add_event(request):
+    if request.method == 'POST':
+        form = CreateEventForm(data=request.POST)
+        form = form.save(commit=False)
+        form.owner = request.user
+
+
 def add_image_to_event(event):
     old_path = event.image.path
     ext = old_path.rsplit('.', 1)[1].lower()
@@ -42,7 +49,7 @@ def add_participant(request, slug, year, month, day):
                                   month=month,
                                   day=day)
         try:
-            participant = event.participants.get(user=request.user)
+            participant = event.participants.create(user=request.user, event=event)
         except models.Participant.DoesNotExist:
             raise Http404
         add_qr_code_to_participant('',

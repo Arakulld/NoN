@@ -22,23 +22,26 @@
       <p> Регистрационная форма на мероприятие </p>
       <hr>
 
-      <label for="fname"><b> Название Мероприятия </b></label>
-      <input type="text" placeholder="Название Организации" name="fname">
+      <label for="fname"><b> Название Организации </b></label>
+      <input type="text" placeholder="Название Организации" name="fname" required>
 
-      <label for="birthday"><b>Возраст</b></label>
-      <input type="date " placeholder="Возраст" name="birthday" required>
+      <label for="name"><b> Название Мероприятия </b></label>
+      <input type="text" placeholder="Название Мероприятия" name="name" required>
 
-      <label for="name"><b>Место Проведения</b></label>
-      <input type="text" placeholder="Место Проведения" name="name" required>
+      <label for="time">Дата начала</label>
+      <input type="datetime-local" placeholder="Дата и Время" name="time" required>
 
-      <label for="time"><b>Дата и Время</b></label>
-      <input type="date" placeholder="Дата и Время" name="time" required>
+      <label for="time">Дата окончания</label>
+      <input type="datetime-local" placeholder="Дата и Время" name="time" required>
+
+      <label for="fname"><b> Место проведения </b></label>
+      <input type="text" placeholder="Место проведения" name="fname" required>
 
       <label for="num1"><b> Количество участников </b></label>
       <input type="number" placeholder="Количество участников" name="num1" required>
-
-      <label for="num"><b> Контакты </b></label>
-      <input type="number" placeholder=" Контакты" name="num" required>
+      
+      <label for="phone"> Контакты</label>
+      <input type="tel" name="phone" placeholder="99-123-45-67" pattern="[0-9]{2}-[0-9]{3}-[0-9]{2}-[0-9]{2}" required>
 
       <label for="info"><b> Информация про Мероприятие </b></label>
       <input type="text" placeholder="Информация про Мероприятие" name="info" required>
